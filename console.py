@@ -21,6 +21,10 @@ class HBNBCommand(Cmd):
         className = classArgs[0]
         if className not in HBNBCommand.class_list:
             print("** class doesn't exist **")
+        else:
+            newInst = eval(className)()
+            newInst.save()
+            print(newInst.id)
 
 
 if __name__ == "__main__":
