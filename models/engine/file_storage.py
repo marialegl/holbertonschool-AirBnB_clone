@@ -13,10 +13,11 @@ class FileStorage:
 
     @classmethod
     def new(cls, obj):
+        """set in __objects the obj with key <obj class name>.id"""
         if obj:
             className = obj.__class__.__name__
             key = f"{className}.{obj.id}"
-            FileStorage._objects[key] = obj
+            FileStorage.__objects[key] = obj
 
     def save(self):
         """Serializes __object to the json file"""
