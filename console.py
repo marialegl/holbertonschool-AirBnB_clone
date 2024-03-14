@@ -5,6 +5,10 @@ from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
+from models.city import City
+from models.review import Review
+from models.place import Place
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
@@ -86,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             new_list = []
             for key, value in objDict.items():
-                if key.startswitch(args[0] + "."):
+                if key.startswith(args[0] + "."):
                     new_list.append(str(value))
             print(new_list)
 
