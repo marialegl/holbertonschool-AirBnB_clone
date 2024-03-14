@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 
-from cmd import Cmd
+import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
+from models.amenity import Amenity
 
 
-class HBNBCommand(Cmd):
+class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    class_list = ["BaseModel"]
+    class_list = ["BaseModel", "User", "Place", "Review", "State", "City", "Amenity"]
 
     def do_quit(self, arg):
         """Quit command to exit in console"""
@@ -35,7 +37,7 @@ class HBNBCommand(Cmd):
 
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] is not HBNBCommand.class_list:
+        elif args[0] not in HBNBCommand.class_list:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
@@ -49,13 +51,68 @@ class HBNBCommand(Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, arg):
-        pass
+        """
+        prints the string representation of an instance based on className and id
+        """
+        args = arg.split()
+
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.class_list:
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print("** instance id missing **")
+        else:
+            className = args[0]
+            key = className + "." + args[1]
+            allObjs = storage.all()
+            if key in allObjs:
+                del allObjs[key]
+                storage.save()
+            else:
+                print("** No instance found **")
 
     def do_all(self, arg):
-        pass
+        args = arg.split()
+        objDict = storage.all()
+
+        if not args:
+            new_list = []
+            for key, value in objDict.items():
+                new_list.append(str(value))
+            print(new_list)
+        elif args[0] not in HBNBCommand.class_list:
+            print("** class doesn't exist **")
+        else:
+            new_list = []
+            for key, value in objDict.items():
+                if key.startswitch(args[0] + "."):
+                    new_list.append(str(value))
+            print(new_list)
 
     def do_update(self, arg):
-        pass
+        args = arg.split()
+
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.class_list:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif len(args) == 3:
+            print("** value missing **")
+        else:
+            allObjs = storage.all()
+            key = args[0] + "." + args[1]
+            if key not in allObjs:
+                print("** no instance found **")
+            else:
+                instance = allObjs[key]
+                if instance.__class__.__name__ in HBNBCommand.class_list:
+                    setattr(instance, args[2], args[3])
+                    instance.save()
 
 
 if __name__ == "__main__":
