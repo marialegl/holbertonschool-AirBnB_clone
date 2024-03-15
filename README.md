@@ -28,6 +28,7 @@ To start the command interpreter, follow these steps:
  - Clone the repository from ```git@github.com:marialegl/holbertonschool-AirBnB_clone.git```
  - Open a terminal and navigate to the directory where you cloned the repository.</li>
  - Run the following command:
+
 ```bash
 ./console.py
 ```
@@ -45,16 +46,19 @@ Once you've started the command interpreter, you can use the following commands:
 ## Examples
 
 To create a new user:
+
 ```bash
 (hbnb) create User
 ```
 
 To list all users:
+
 ```bash
 (hbnb) all User
 ```
 
 To exit the command interpreter:
+
 ```bash
 (hbnb) quit
 ```
