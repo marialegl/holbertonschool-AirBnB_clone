@@ -3,6 +3,7 @@
 
 import unittest
 import pycodestyle
+from models.base_model import BaseModel
 from models.user import User
 
 
