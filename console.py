@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""The HBNBCommand class implements several
+methods that define different commands that
+the user can execute in the command line interpreter.
+"""
+
 
 import cmd
 from models import storage
@@ -22,6 +27,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, arg):
+        """Create command to create a new instance of a class
+        """
         if not arg:
             print("** class name mising **")
             return
@@ -35,9 +42,8 @@ class HBNBCommand(cmd.Cmd):
             print(newInst.id)
 
     def do_show(self, arg):
-        """
-        prints the string representation of an
-        instance based on className and id
+        """Show command to print the string representation
+        of an instance based on className and id
         """
         args = arg.split()
 
@@ -58,8 +64,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """
-        prints the string representation of an
-        instance based on className and id
+        Destroy command to delete
+        an instance based on className and id
         """
         args = arg.split()
 
@@ -80,6 +86,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** No instance found **")
 
     def do_all(self, arg):
+        """All command to print all instances
+        of a class or all instances
+        """
         args = arg.split()
         objDict = storage.all()
 
@@ -98,6 +107,9 @@ class HBNBCommand(cmd.Cmd):
             print(new_list)
 
     def do_update(self, arg):
+        """
+        Update command to update attributes of an instance
+        """
         args = arg.split()
 
         if len(args) == 0:
