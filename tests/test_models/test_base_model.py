@@ -60,6 +60,6 @@ class Test_Base_Model_Pep8(unittest.TestCase):
 
         style = pycodestyle.StyleGuide(quiet=False)
         base_model = "models/base_model.py"
-        test_base_model = "test_base_model.py"
+        test_base_model = "tests/test_models/test_base_model.py"
         result = style.check_files([base_model, test_base_model])
         self.assertEqual(result.total_errors, 0)
