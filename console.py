@@ -13,7 +13,8 @@ from models.state import State
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    class_list = ["BaseModel", "User", "Place", "Review", "State", "City", "Amenity"]
+    class_list = ["BaseModel", "User", "Place",
+                  "Review", "State", "City", "Amenity"]
 
     def do_quit(self, arg):
         """Quit command to exit in console"""
@@ -35,7 +36,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        prints the string representation of an instance based on className and id
+        prints the string representation of an
+        instance based on className and id
         """
         args = arg.split()
 
@@ -56,7 +58,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """
-        prints the string representation of an instance based on className and id
+        prints the string representation of an
+        instance based on className and id
         """
         args = arg.split()
 
