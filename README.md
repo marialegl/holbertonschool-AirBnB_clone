@@ -1,5 +1,3 @@
-# holbertonschool-AirBnB_clone
-
 ## ¡WELCOME TO THE AIRBNB CLONE PROJECT!
 
 <img src="https://i.pinimg.com/originals/87/10/23/871023fca810e57347eab0ae811ccfdf.png" title="AirBnB clone project" />
@@ -65,7 +63,7 @@ To exit the command interpreter:
 
 # Developed by
 
-<p>Maria Alejandra Gonzales</p>
+<p>Maria Alejandra Gonzalez</p>
 <a href="https://www.linkedin.com/in/maria-alejandra-gonzalez-londo%C3%B1o-a5084a208/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
   <img src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya5g47j2.png" width="50">
 </a>
