@@ -26,6 +26,10 @@ class HBNBCommand(cmd.Cmd):
         print("Exit")
         return True
 
+    def help_quit(self):
+        """Add help documentation for the 'quit' command"""
+        print("Quit command to exit the console.")
+
     def do_create(self, arg):
         """Create command to create a new instance of a class
         """
@@ -40,6 +44,11 @@ class HBNBCommand(cmd.Cmd):
             newInst = eval(className)()
             newInst.save()
             print(newInst.id)
+
+    def help_create(self):
+        """Add help documentation for the 'create' command"""
+        print("Create command creates a new instance of a class.")
+        print("Usage: create [class_name]")
 
     def do_show(self, arg):
         """Show command to print the string representation
@@ -61,6 +70,11 @@ class HBNBCommand(cmd.Cmd):
                 print(allObjs[key])
             else:
                 print("** no instance found **")
+
+    def help_show(self):
+        """Add help documentation for the 'show' command"""
+        print("Show command prints the string representation of an instance.")
+        print("Usage: show [class_name] [instance_id]")
 
     def do_destroy(self, arg):
         """
@@ -132,6 +146,17 @@ class HBNBCommand(cmd.Cmd):
                 if instance.__class__.__name__ in HBNBCommand.class_list:
                     setattr(instance, args[2], args[3])
                     instance.save()
+
+    def help_update(self):
+        """Add help documentation for the 'update' command"""
+        print("Update command updates attributes of an instance.")
+        print("Usage: update [class_name] [instance_id] [attribute] [value]")
+
+
+    def do_help(self, arg):
+        """List available commands with "help"
+        or detailed help with "help cmd"."""
+        cmd.Cmd.do_help(self, arg)
 
 
 if __name__ == "__main__":
