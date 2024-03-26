@@ -4,3 +4,10 @@ header {
     width: 100%;
     border-bottom: 1px #CCCCCC;
 }
+.container {
+    display: flex;
+    align-items: center;
+}
+.container img {
+    margin-left: 20px;
+}
