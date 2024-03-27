@@ -7,7 +7,7 @@ footer {
     text-align: center;
     display: flex;
     align-items: center;
-    border-top: 1px #CCCCCC;
+    border-top: 1px solid #CCCCCC;
     justify-content: center;
     align-items: center;
 }
